@@ -1,3 +1,5 @@
+application_name = 'digital_currency_news_spiders'
+
 keywords = ['虚拟货币',
             '数字货币',
             '加密货币',
@@ -21,20 +23,30 @@ class Config:
     def init_app(app):
         pass
 
+    @staticmethod
+    def merge_args(args):
+        if args.mongo_user is not None:
+            Config.MONGO_USER = args.mongo_user
+        if args.mongo_password is not None:
+            Config.MONGO_PASSWORD = args.mongo_password
 
-class DevelopmentConfig(Config):
+
+class LocalConfig(Config):
     MONGO_USER = 'tao'
     MONGO_PASSWORD = '000000'
 
 
+class DevelopmentConfig(Config):
+    pass
+
+
 class ProductionConfig(Config):
-    MONGO_USER = 'tao_prod'
-    MONGO_PASSWORD = '000000'
+    pass
 
 
 profiles = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig,
+    'dev': DevelopmentConfig,
+    'prod': ProductionConfig,
 
-    'default': DevelopmentConfig
+    'default': LocalConfig
 }
