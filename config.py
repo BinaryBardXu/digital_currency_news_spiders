@@ -32,7 +32,7 @@ class ProductionConfig(Config):
     MONGO_PASSWORD = '000000'
 
 
-config = {
+profiles = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
 

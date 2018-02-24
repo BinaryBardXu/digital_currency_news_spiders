@@ -8,7 +8,7 @@ def job():
     spiders_runner.run()
 
 
-def schedule():
+def run():
     scheduler = BlockingScheduler()
     scheduler.add_job(job, 'cron', minute='*/1')
     scheduler.start()

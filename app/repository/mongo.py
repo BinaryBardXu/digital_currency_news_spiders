@@ -1,31 +1,19 @@
 from pymongo import MongoClient
-import pymongo
-from application import app
+import application
 
-MONGO_URL = 'mongodb://%s:%s@%s:%s/%s?authSource=%s' % (app.config['MONGO_USER'],
-                                                        app.config['MONGO_PASSWORD'],
-                                                        app.config['MONGO_HOST'],
-                                                        app.config['MONGO_HOST_PORT'],
-                                                        app.config['MONGO_COLLECTION_NAME'],
-                                                        app.config['MONGO_AUTH_SOURCE'])
-print(MONGO_URL)
-
+MONGO_URL = 'mongodb://%s:%s@%s:%s/%s?authSource=%s' % (application.config.MONGO_USER,
+                                                        application.config.MONGO_PASSWORD,
+                                                        application.config.MONGO_HOST,
+                                                        application.config.MONGO_HOST_PORT,
+                                                        application.config.MONGO_COLLECTION_NAME,
+                                                        application.config.MONGO_AUTH_SOURCE)
 client = MongoClient(MONGO_URL)
 
-db = client['digital_currency_news']
-collect = db['articles']
+db = client.digital_currency_news
+collection = db.articles
 
 
 def save(article):
-    if collect.find({"$or": [{"link": article['link']}, {"title": article['title']}]}).count() > 0:
+    if collection.find({"$or": [{"link": article['link']}, {"title": article['title']}]}).count() > 0:
         return
-    collect.insert_one(article)
-
-
-def get_news(limit):
-    news_list = []
-    for news in list(collect.find().sort('date', pymongo.DESCENDING).limit(limit)):
-        del news['_id']
-        news_list.append(news)
-
-    return news_list
+    collection.insert_one(article)
