@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--active_profile')
 parser.add_argument('--mongo_user')
 parser.add_argument('--mongo_password')
-command_args = parser.parse_args()
+command_args, unknown = parser.parse_known_args()
 
 active_profile = command_args.active_profile or 'default'
 
