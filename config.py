@@ -5,6 +5,7 @@ keywords = ['虚拟货币',
             '加密货币',
             '区块链',
             '比特币',
+            '中本聪',
             '币圈',
             'bitcoin',
             'cryptocurrency']
