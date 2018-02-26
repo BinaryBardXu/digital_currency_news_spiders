@@ -17,3 +17,5 @@ def save(article):
     if articles_collection.find({"$or": [{"link": article['link']}, {"title": article['title']}]}).count() > 0:
         return
     articles_collection.insert_one(article)
+    print('已入库新的数据')
+    print(article)
