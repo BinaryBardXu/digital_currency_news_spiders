@@ -1,5 +1,8 @@
 from pymongo import MongoClient
 import application
+import logging
+
+logger = logging.getLogger(__name__)
 
 MONGO_URL = 'mongodb://%s:%s@%s:%s/%s?authSource=%s' % (application.config.MONGO_USER,
                                                         application.config.MONGO_PASSWORD,
@@ -17,5 +20,5 @@ def save(article):
     if articles_collection.find({"$or": [{"link": article['link']}, {"title": article['title']}]}).count() > 0:
         return
     articles_collection.insert_one(article)
-    print('已入库新的数据')
-    print(article)
+    logger.info('已入库新的数据')
+    logger.info(article)
