@@ -2,6 +2,8 @@ import logging
 from time import strftime
 from logging.handlers import RotatingFileHandler
 
+import os
+
 application_name = 'digital_currency_news_spiders'
 
 keywords = ['虚拟货币',
@@ -17,7 +19,7 @@ keywords = ['虚拟货币',
 
 def config_logging(log_path):
     if log_path is None:
-        log_path = ''
+        log_path = os.getcwd()
     if not log_path.endswith('/'):
         log_path += '/'
 
