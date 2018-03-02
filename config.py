@@ -27,13 +27,13 @@ def config_logging(log_path):
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-    default_handler = RotatingFileHandler(strftime(log_path + 'log.%Y_%m_%d_%H_%M'), maxBytes=1024 * 10,
+    default_handler = RotatingFileHandler(strftime(log_path + 'log.%Y_%m_%d_%H_%M'), maxBytes=1024 * 10 * 10,
                                           backupCount=100)
     default_handler.setLevel(logging.INFO)
     default_handler.setFormatter(formatter)
     logger.addHandler(default_handler)
 
-    error_handler = RotatingFileHandler(strftime(log_path + 'error.log.%Y_%m_%d_%H_%M'), maxBytes=1024 * 10,
+    error_handler = RotatingFileHandler(strftime(log_path + 'error.log.%Y_%m_%d_%H_%M'), maxBytes=1024 * 10 * 10,
                                         backupCount=100)
     error_handler.setLevel(logging.ERROR)
     error_handler.setFormatter(formatter)
@@ -86,3 +86,9 @@ profiles = {
 
     'default': LocalConfig
 }
+
+default_config = Config()
+
+
+def app_config():
+    return default_config

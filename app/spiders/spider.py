@@ -3,7 +3,7 @@ import sys
 import logging
 from datetime import datetime
 
-from app.repository.mongo import save
+from app.repository.article_repo import save
 
 logger = logging.getLogger(__name__)
 sys.setrecursionlimit(10000)
