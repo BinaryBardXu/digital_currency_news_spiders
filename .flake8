@@ -8,3 +8,4 @@ exclude =
     old,
     build,
     dist,
+    app/*/__init__.py
