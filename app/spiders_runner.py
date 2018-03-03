@@ -8,6 +8,7 @@ from app.spiders.tech163_spider import Tech163Spider
 from app.spiders.fi163_spider import Fi163Spider
 from app.spiders.wallstreetcn_spider import WSJCNSpider
 from app.spiders.infzm_spider import NFZMSpider
+from app.spiders.jingji21_spider import Jingji21Spider
 
 
 def run():
@@ -34,3 +35,6 @@ def run():
 
     infzm_spider = NFZMSpider()
     infzm_spider.run()
+
+    jingji21_spider = Jingji21Spider()
+    jingji21_spider.run()
