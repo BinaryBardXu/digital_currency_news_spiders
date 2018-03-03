@@ -9,6 +9,7 @@ from app.spiders.fi163_spider import Fi163Spider
 from app.spiders.wallstreetcn_spider import WSJCNSpider
 from app.spiders.infzm_spider import NFZMSpider
 from app.spiders.jingji21_spider import Jingji21Spider
+from app.spiders.pengpai_spider import PengpaiSpider
 
 
 def run():
@@ -38,3 +39,6 @@ def run():
 
     jingji21_spider = Jingji21Spider()
     jingji21_spider.run()
+
+    pengpai_spider = PengpaiSpider()
+    pengpai_spider.run()
