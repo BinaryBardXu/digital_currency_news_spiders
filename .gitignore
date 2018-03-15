@@ -110,3 +110,4 @@ venv.bak/
 pid.file
 log.*
 error.log.*
+.history

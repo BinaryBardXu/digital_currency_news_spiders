@@ -9,3 +9,5 @@ exclude =
     build,
     dist,
     app/*/__init__.py
+    devops
+    .history
