@@ -10,5 +10,5 @@ def job():
 
 def run():
     scheduler = BlockingScheduler()
-    scheduler.add_job(job, 'cron', minute='*/5')
+    scheduler.add_job(job, max_instances=10, 'cron', minute='*/5')
     scheduler.start()
