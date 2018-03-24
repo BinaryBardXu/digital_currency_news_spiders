@@ -1,6 +1,7 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
+import schedule
 from datetime import datetime
 from . import spiders_runner
+import time
 
 
 def job():
@@ -9,6 +10,8 @@ def job():
 
 
 def run():
-    scheduler = BlockingScheduler()
-    scheduler.add_job(job, max_instances=10, 'cron', minute='*/5')
-    scheduler.start()
+    schedule.every(1).minutes.do(job)
+    schedule.run_pending()
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

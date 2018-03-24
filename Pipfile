@@ -13,11 +13,11 @@ name = "pypi"
 
 requests = "*"
 pymongo = "*"
-apscheduler = "*"
 "beautifulsoup4" = "*"
 flask = "*"
 flask-restful = "*"
 "flake8" = "*"
+schedule = "*"
 
 
 [requires]
