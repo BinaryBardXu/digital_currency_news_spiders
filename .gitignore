@@ -111,3 +111,4 @@ pid.file
 log.*
 error.log.*
 .history
+/.vscode/

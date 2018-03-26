@@ -18,6 +18,7 @@ flask = "*"
 flask-restful = "*"
 "flake8" = "*"
 schedule = "*"
+"autopep8" = "*"
 
 
 [requires]
